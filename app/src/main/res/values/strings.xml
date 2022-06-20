@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">DesafioFinal</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home">Home</string>
+    <string name="cadastrar">Cadastrar</string>
+    <string name="favoritos">Favoritos</string>
+    <string name="nome">Nome</string>
+    <string name="link_img">Link da imagem</string>
+    <string name="description">Descrição</string>
+    <string name="specie">Espécie</string>
+    <string name="age">Idade</string>
+    <string name="btn_register">Cadastrar</string>
+</resources>
