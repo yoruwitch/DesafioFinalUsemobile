@@ -2,6 +2,7 @@ package com.example.desafiofinal.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.desafiofinal.RecyclerList
 import com.example.desafiofinal.api.PostBody
 import com.example.desafiofinal.api.RetroInstance
@@ -12,11 +13,7 @@ import retrofit2.Response
 
 class AnimalsRvViewModel : ViewModel() {
 
-    lateinit var recyclerListData: MutableLiveData<RecyclerList>
-
-    init {
-        recyclerListData = MutableLiveData()
-    }
+    var recyclerListData: MutableLiveData<RecyclerList> = MutableLiveData()
 
     fun getDataFromRecyclerListObserver(): MutableLiveData<RecyclerList> {
         return recyclerListData
@@ -62,5 +59,13 @@ class AnimalsRvViewModel : ViewModel() {
 
         })
     }
+
+    fun favourites(){
+        
+    }
+
 }
+
+
+
 

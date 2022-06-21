@@ -1,5 +1,6 @@
 package com.example.desafiofinal.view.activities.recyclerviewapi
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.desafiofinal.R
 import com.example.desafiofinal.RecyclerData
+import com.example.desafiofinal.view.activities.FavouritesActivity
 
 class AnimalsRvAdapter(private val onClick: (RecyclerData) -> Unit) :
     RecyclerView.Adapter<AnimalsRvAdapter.MyViewHolder>() {
@@ -22,7 +24,8 @@ class AnimalsRvAdapter(private val onClick: (RecyclerData) -> Unit) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val view = LayoutInflater.from(
-            parent.getContext()).inflate(R.layout.layout_animal_row, parent, false)
+            parent.getContext()
+        ).inflate(R.layout.layout_animal_row, parent, false)
         return MyViewHolder(view, onClick)
     }
 
@@ -58,6 +61,18 @@ class AnimalsRvAdapter(private val onClick: (RecyclerData) -> Unit) :
                 .error(R.drawable.juma_testing)
                 .fallback(R.drawable.juma_testing)
                 .into(animalImg)
+
+            val addFavourite = itemView.findViewById<ImageView>(R.id.btn_favorite)
+            var gambiarra = 1
+            addFavourite.setOnClickListener {
+                gambiarra++
+                if (gambiarra % 2 == 0 ) {
+                    addFavourite.setImageResource(R.drawable.star_favourite)
+                } else {
+                    addFavourite.setImageResource(R.drawable.star)
+                }
+            }
+
         }
     }
 }

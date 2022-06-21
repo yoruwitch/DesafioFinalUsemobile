@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -43,7 +44,17 @@ class HomeActivity : AppCompatActivity() {
         // Recycler View:::
         initRecyclerView()
         createData()
+
+        // favourites
+
     }
+
+//    fun onClickFavourite(data: RecyclerData){
+//        val addFavourite = itemView.findViewById<ImageView>(R.id.btn_favorite)
+//        addFavourite.setOnClickListener {
+//
+//        }
+//    }
 
     private fun onClickAdapter(data: RecyclerData) {
         val intent = Intent(this@HomeActivity, AnimalDetailsActivity::class.java)

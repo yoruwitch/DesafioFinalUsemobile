@@ -23,6 +23,7 @@ class FavouritesActivity : AppCompatActivity() {
         val actionBar = supportActionBar
         actionBar?.setDisplayHomeAsUpEnabled(true)
 
+
     }
 
 //    private fun initRecyclerView() {
@@ -89,5 +90,4 @@ class FavouritesActivity : AppCompatActivity() {
             }
             return super.onOptionsItemSelected(item)
         }
-
     }
