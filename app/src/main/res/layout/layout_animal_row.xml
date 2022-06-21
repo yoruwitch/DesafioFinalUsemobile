@@ -5,29 +5,27 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rc_layout"
-    android:layout_width="375dp"
-    android:layout_height="81dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:layout_marginStart="8dp"
-    android:layout_marginLeft="8dp"
     android:layout_marginTop="8dp"
     android:layout_marginEnd="8dp"
-    android:layout_marginRight="8dp"
-    android:background="@color/background"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent">
+    android:background="@color/background">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        >
 
         <ImageView
             android:id="@+id/animal_image"
             android:layout_width="65dp"
             android:layout_height="65dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/juma_testing"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -36,41 +34,41 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            android:textColor="@color/animal_name"
-            android:layout_marginTop="9dp"
-            android:textSize="18sp"
+            android:layout_marginTop="8dp"
             android:maxLines="@integer/material_motion_duration_short_1"
+            android:textColor="@color/animal_name"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/btn_favorite"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/animal_image"
             app:layout_constraintTop_toTopOf="@+id/animal_image"
             tools:text="Juma" />
 
         <TextView
             android:id="@+id/animal_description"
-            android:layout_width="226dp"
-            android:layout_height="18dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:layout_marginTop="2dp"
-            android:textColor="@color/animal_description"
-            android:textSize="12sp"
             android:maxLines="2"
             android:minLines="1"
+            android:textColor="@color/animal_description"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@+id/btn_favorite"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/animal_image"
             app:layout_constraintTop_toBottomOf="@+id/animal_title"
             tools:text="Onça muito famosa, já atuou em novela" />
 
-        <ImageButton
+        <ImageView
             android:id="@+id/btn_favorite"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginStart="335dp"
-            android:layout_marginTop="28dp"
             android:layout_marginEnd="16dp"
-            app:layout_constraintBottom_toTopOf="@+id/animal_description"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:background="@drawable/star"
-            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+            app:srcCompat="@drawable/star" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

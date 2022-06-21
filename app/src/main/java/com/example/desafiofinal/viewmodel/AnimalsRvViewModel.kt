@@ -53,22 +53,14 @@ class AnimalsRvViewModel : ViewModel() {
             RetroInstance.getRetroInstance().create(RetroService::class.java)
         val post = retroInstance.postDataInApi(PostBody(name, description, age, specie, image))
 
-        post
+        post.enqueue(object : Callback<PostBody> {
+            override fun onResponse(call: Call<PostBody>, response: Response<PostBody>) {
+            }
+
+            override fun onFailure(call: Call<PostBody>, t: Throwable) {
+            }
+
+        })
     }
 }
 
-//@SerializedName("name")
-//val name: String,
-//@SerializedName("description")
-//val description: String,
-//@SerializedName("age")
-//val age: Int,
-//@SerializedName("species")
-//val specie: String,
-//@SerializedName("image")
-//val image: String
-
-//Recuperar as informações do usuário digitadas na tela de cadastro de animal
-//Vai chamar a função que esta na viewmodel passando essas informações por parametro
-//Utilizar as informações recebidas na viewmodel para criar o PostBody()
-//COm isso é só passar o body na requisição

@@ -10,11 +10,11 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.StaggeredGridLayoutManager.VERTICAL
 import com.example.desafiofinal.R
+import com.example.desafiofinal.RecyclerData
 import com.example.desafiofinal.RecyclerList
 import com.example.desafiofinal.databinding.ActivityHomeBinding
-import com.example.desafiofinal.view.activities.recyclerview.AnimalsRvAdapter
+import com.example.desafiofinal.view.activities.recyclerviewapi.AnimalsRvAdapter
 import com.example.desafiofinal.viewmodel.AnimalsRvViewModel
 
 class HomeActivity : AppCompatActivity() {
@@ -45,14 +45,30 @@ class HomeActivity : AppCompatActivity() {
         createData()
     }
 
+    private fun onClickAdapter(data: RecyclerData) {
+        val intent = Intent(this@HomeActivity, AnimalDetailsActivity::class.java)
+
+        val bundle = Bundle()
+        bundle.putParcelable("Input click", data)
+        intent.putExtras(bundle)
+
+        startActivity(intent)
+
+    }
+
+
     private fun initRecyclerView() {
         binding.recyclerView.apply {
-            layoutManager = LinearLayoutManager(this@HomeActivity)
-            recyclerViewAdapter = AnimalsRvAdapter()
+            recyclerViewAdapter = AnimalsRvAdapter(::onClickAdapter)
             adapter = recyclerViewAdapter
 
-            val decoration = DividerItemDecoration(applicationContext, VERTICAL)
-            addItemDecoration(decoration)
+            addItemDecoration(
+                DividerItemDecoration(
+                    this@HomeActivity,
+                    LinearLayoutManager.VERTICAL
+                )
+            )
+
         }
     }
 
@@ -106,5 +122,4 @@ class HomeActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
-
 }

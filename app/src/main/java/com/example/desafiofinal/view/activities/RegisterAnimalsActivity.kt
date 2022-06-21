@@ -4,16 +4,19 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
+
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.desafiofinal.R
 import com.example.desafiofinal.databinding.ActivityRegisterAnimalsBinding
 import com.example.desafiofinal.viewmodel.AnimalsRvViewModel
 
+
 class RegisterAnimalsActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegisterAnimalsBinding
     private lateinit var viewModel: AnimalsRvViewModel
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

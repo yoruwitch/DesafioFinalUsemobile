@@ -6,16 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".view.activities.FavouritesActivity">
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_nav"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/bottom_nav"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="parent"
-        app:menu="@menu/bottom_nav_menu" />
-
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/topBar"
         android:layout_width="match_parent"
@@ -30,5 +20,33 @@
             app:title="Favoritos"
             app:titleCentered="true"
             app:titleTextColor="@color/toolbar_color" />
+
     </com.google.android.material.appbar.AppBarLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewStorage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@id/bottom_nav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topBar"
+        tools:listitem="@layout/layout_animal_row"/>
+
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bottom_nav"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

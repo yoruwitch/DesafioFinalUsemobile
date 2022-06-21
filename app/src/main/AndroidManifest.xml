@@ -19,6 +19,9 @@
             android:name=".view.activities.FavouritesActivity"
             android:exported="false" />
         <activity
+            android:name=".view.activities.AnimalDetailsActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.activities.SplashActivity"
             android:exported="true">
             <intent-filter>

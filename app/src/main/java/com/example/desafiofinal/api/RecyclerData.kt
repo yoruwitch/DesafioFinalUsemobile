@@ -1,14 +1,20 @@
 package com.example.desafiofinal
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
 data class RecyclerList(val items: ArrayList<RecyclerData>)
+
+@Parcelize
 data class RecyclerData(
-    val id: String,
-    val name: String,
-    val description: String,
-    val age: Int,
-    val species: String,
-    val image: String
-    )
+
+    val id: String?,
+    val name: String?,
+    val description: String?,
+    val age: Int?,
+    val species: String?,
+    val image: String?
+    ) : Parcelable
 
 
 //"items": [
