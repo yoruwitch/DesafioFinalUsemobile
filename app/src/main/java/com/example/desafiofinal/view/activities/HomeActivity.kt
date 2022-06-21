@@ -6,23 +6,21 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager.VERTICAL
 import com.example.desafiofinal.R
 import com.example.desafiofinal.RecyclerList
-import com.example.desafiofinal.api.RetroInstance
-import com.example.desafiofinal.api.RetroService
 import com.example.desafiofinal.databinding.ActivityHomeBinding
 import com.example.desafiofinal.view.activities.recyclerview.AnimalsRvAdapter
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import com.example.desafiofinal.viewmodel.AnimalsRvViewModel
 
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var recyclerViewAdapter: AnimalsRvAdapter
-
+    private lateinit var viewModel: AnimalsRvViewModel
     private lateinit var binding: ActivityHomeBinding
 
 
@@ -30,6 +28,10 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // calling the viewmodel
+
+        viewModel = ViewModelProvider(this).get(AnimalsRvViewModel::class.java)
 
         // calling the bottom nav bar and the toolbar:::
         setUpBottomNavBar()
@@ -56,20 +58,12 @@ class HomeActivity : AppCompatActivity() {
 
     @SuppressLint("NotifyDataSetChanged")
     fun createData() {
-        val retroInstance =
-            RetroInstance.getRetroInstance().create(RetroService::class.java)
+        viewModel.getDataFromRecyclerListObserver().observe(this, Observer<RecyclerList> {
 
-        val call = retroInstance.getDataFromApi("animals")
-        call.enqueue(object : Callback<RecyclerList> {
-
-            override fun onResponse(call: Call<RecyclerList>, response: Response<RecyclerList>) {
-                if (response.isSuccessful) {
-                    recyclerViewAdapter.setData(response.body()?.items!!)
-                    recyclerViewAdapter.notifyDataSetChanged()
-                }
-            }
-
-            override fun onFailure(call: Call<RecyclerList>, t: Throwable) {
+            if (it != null) {
+                recyclerViewAdapter.setData(it.items)
+                recyclerViewAdapter.notifyDataSetChanged()
+            } else {
                 Toast.makeText(
                     this@HomeActivity,
                     "Error in getting data from api",
@@ -77,8 +71,7 @@ class HomeActivity : AppCompatActivity() {
                 ).show()
             }
         })
-
-
+        viewModel.makeApiCall()
     }
 
     private fun setUpBottomNavBar() {

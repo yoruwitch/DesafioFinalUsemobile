@@ -89,6 +89,7 @@
         app:layout_constraintTop_toBottomOf="@id/animal_specie" />
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_register"
         android:layout_width="344dp"
         android:layout_height="59dp"
         android:layout_marginTop="32dp"

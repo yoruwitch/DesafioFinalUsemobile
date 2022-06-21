@@ -13,7 +13,7 @@ import com.example.desafiofinal.R
 class AnimalDetailsFragment : Fragment() {
 
 
-
+private lateinit var binding : AnimalDetailsFragment
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
