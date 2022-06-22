@@ -47,10 +47,9 @@ class RegisterAnimalsActivity : AppCompatActivity() {
                 )
                 Toast.makeText(
                     this@RegisterAnimalsActivity,
-                    "API GOT IT!", Toast.LENGTH_LONG
+                    "Success! New animal added", Toast.LENGTH_LONG
                 ).show()
             }
-
         }
     }
 
@@ -86,6 +85,4 @@ class RegisterAnimalsActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
-
-
 }

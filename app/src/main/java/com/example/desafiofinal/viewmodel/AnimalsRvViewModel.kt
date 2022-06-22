@@ -61,7 +61,7 @@ class AnimalsRvViewModel : ViewModel() {
     }
 
     fun favourites(){
-        
+
     }
 
 }

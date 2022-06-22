@@ -17,12 +17,13 @@ class AnimalDetailsActivity : AppCompatActivity() {
         binding = ActivityAnimalDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //
+        // Sets top bar and bottom nav bar
         setSupportActionBar(binding.toolbar)
         val actionBar = supportActionBar
         actionBar?.setDisplayHomeAsUpEnabled(true)
 
-        //
+        //Getting the data from the click in the HomeActivity and setting in the interface:::
+
         val extras = intent.extras
         val data: RecyclerData? = extras?.getParcelable("Input click")
         data?.let {

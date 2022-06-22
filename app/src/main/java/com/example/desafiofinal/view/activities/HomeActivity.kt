@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -15,7 +14,7 @@ import com.example.desafiofinal.R
 import com.example.desafiofinal.RecyclerData
 import com.example.desafiofinal.RecyclerList
 import com.example.desafiofinal.databinding.ActivityHomeBinding
-import com.example.desafiofinal.view.activities.recyclerviewapi.AnimalsRvAdapter
+import com.example.desafiofinal.view.activities.adapter.AnimalsRvAdapter
 import com.example.desafiofinal.viewmodel.AnimalsRvViewModel
 
 class HomeActivity : AppCompatActivity() {
@@ -49,13 +48,6 @@ class HomeActivity : AppCompatActivity() {
 
     }
 
-//    fun onClickFavourite(data: RecyclerData){
-//        val addFavourite = itemView.findViewById<ImageView>(R.id.btn_favorite)
-//        addFavourite.setOnClickListener {
-//
-//        }
-//    }
-
     private fun onClickAdapter(data: RecyclerData) {
         val intent = Intent(this@HomeActivity, AnimalDetailsActivity::class.java)
 
@@ -64,7 +56,6 @@ class HomeActivity : AppCompatActivity() {
         intent.putExtras(bundle)
 
         startActivity(intent)
-
     }
 
 
@@ -79,7 +70,6 @@ class HomeActivity : AppCompatActivity() {
                     LinearLayoutManager.VERTICAL
                 )
             )
-
         }
     }
 

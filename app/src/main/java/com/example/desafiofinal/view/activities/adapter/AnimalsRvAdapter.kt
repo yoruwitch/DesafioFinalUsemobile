@@ -1,6 +1,5 @@
-package com.example.desafiofinal.view.activities.recyclerviewapi
+package com.example.desafiofinal.view.activities.adapter
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.desafiofinal.R
 import com.example.desafiofinal.RecyclerData
-import com.example.desafiofinal.view.activities.FavouritesActivity
 
 class AnimalsRvAdapter(private val onClick: (RecyclerData) -> Unit) :
     RecyclerView.Adapter<AnimalsRvAdapter.MyViewHolder>() {
@@ -24,7 +22,7 @@ class AnimalsRvAdapter(private val onClick: (RecyclerData) -> Unit) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val view = LayoutInflater.from(
-            parent.getContext()
+            parent.context
         ).inflate(R.layout.layout_animal_row, parent, false)
         return MyViewHolder(view, onClick)
     }
@@ -38,7 +36,7 @@ class AnimalsRvAdapter(private val onClick: (RecyclerData) -> Unit) :
     }
 
     class MyViewHolder(
-        private val itemView: View,
+        itemView: View,
         private val onClick: (RecyclerData) -> Unit
     ) :
         RecyclerView.ViewHolder(itemView) {
@@ -48,6 +46,9 @@ class AnimalsRvAdapter(private val onClick: (RecyclerData) -> Unit) :
         private val animalImg = itemView.findViewById<ImageView>(R.id.animal_image)
 
         fun onBind(data: RecyclerData) {
+
+            // to click the item and see the details:::
+
             itemView.setOnClickListener {
                 onClick(data)
             }
@@ -62,15 +63,19 @@ class AnimalsRvAdapter(private val onClick: (RecyclerData) -> Unit) :
                 .fallback(R.drawable.juma_testing)
                 .into(animalImg)
 
+
+            // Favorite button:::
             val addFavourite = itemView.findViewById<ImageView>(R.id.btn_favorite)
             var gambiarra = 1
             addFavourite.setOnClickListener {
                 gambiarra++
-                if (gambiarra % 2 == 0 ) {
+                if (gambiarra % 2 == 0) {
                     addFavourite.setImageResource(R.drawable.star_favourite)
                 } else {
                     addFavourite.setImageResource(R.drawable.star)
                 }
+
+
             }
 
         }
