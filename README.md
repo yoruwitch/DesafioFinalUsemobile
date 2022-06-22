@@ -9,9 +9,9 @@
 * Dados exibidos da [API](https://bootcamp-ios-api.herokuapp.com/api/v1/animals) provida;
 * MVVM;
 * Navegação entre Activities;
-* Data Store para armazenar os animais favoritos (em andamento)
+* Data Store para armazenar os animais favoritos (não concluído).
 
 ## Recursos usados:
 * [Conversor de pixels para dp](https://www.pixplicity.com/dp-px-converter)
 * Incontáveis aulas do YouTube.
-* [Codelab](https://developer.android.com/codelabs/android-preferences-datastore#1) de Data Store
+
